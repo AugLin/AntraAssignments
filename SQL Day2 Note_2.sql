@@ -262,7 +262,8 @@ FROM (
 ) dt
 WHERE dt.Rank = 2
 
-
+SELECT ProductID, ProductName, UnitPrice, Rank() OVER(ORDER BY UnitPrice DESC) AS Rank
+FROM Products
 -- DENSE_RANK(): If you do not want to have any value cap then go with dense Rank
 SELECT ProductID, ProductName, UnitPrice, Rank() OVER(ORDER BY UnitPrice DESC) AS Rank1, DENSE_RANK() OVER(ORDER BY UnitPrice DESC) AS Rank2
 FROM Products 
