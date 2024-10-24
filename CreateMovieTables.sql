@@ -1,5 +1,18 @@
+-- DROP TABLE UserRoles
+-- DROP TABLE Roles
+-- DROP TABLE Purchases
+-- DROP TABLE Users
+-- DROP TABLE Reviews
+-- DROP TABLE Favorites
+-- DROP TABLE Trailers
+-- DROP TABLE MovieCasts
+-- DROP TABLE MovieGenres
+-- DROP TABLE Genres
+-- DROP TABLE Casts
+-- DROP TABLE Movies
+-- DROP TABLE Users
 CREATE TABLE Movies (
-    Id INT PRIMARY KEY,
+    Id INT PRIMARY KEY Identity(1,1),
     BackdropUrl VARCHAR(2084),
     Budget DECIMAL(18,4),
     CreatedBy VARCHAR(MAX),
@@ -19,7 +32,7 @@ CREATE TABLE Movies (
 );
 
 CREATE TABLE Genres(
-    Id INT PRIMARY KEY,
+    Id INT PRIMARY KEY IDENTITY(1,1),
     Name VARCHAR(24) NOT NULL,
 )
 
@@ -32,7 +45,7 @@ CREATE TABLE MovieGenres(
 )
 
 CREATE TABLE Casts(
-    Id INT PRIMARY KEY,
+    Id INT PRIMARY KEY IDENTITY(1,1),
     Gender VARCHAR(MAX) NOT NULL,
     NAME VARCHAR(128) NOT NULL,
     ProfilePath VARCHAR(2084) NOT NULL,
@@ -49,7 +62,7 @@ CREATE TABLE MovieCasts(
 )
 
 CREATE TABLE Trailers (
-    Id INT NOT NULL PRIMARY KEY,
+    Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
     MovieId INT NOT NULL,
     Name VARCHAR(2084) NOT NULL,
     TrailerUrl VARCHAR(2084) NOT NULL,
@@ -57,7 +70,7 @@ CREATE TABLE Trailers (
 )
 
 CREATE TABLE Users(
-    Id INT PRIMARY KEY,
+    Id INT PRIMARY KEY IDENTITY(1,1),
     DateOfBirth DATETIME2,
     Email VARCHAR(256) NOT NULL,
     FirstName VARCHAR(128) NOT NULL,
@@ -90,7 +103,7 @@ CREATE TABLE Reviews (
 
 CREATE TABLE Purchases(
     MovieId INT NOT NULL,
-    UserId INT NOT NULL,
+    UserId INT NOT NULL, 
     PurchaseDateTime DATETIME2 NOT NULL,
     PurchaseNumber UNIQUEIDENTIFIER NOT NULL,
     TotalPrice DECIMAL(5,2) NOT NULL,
@@ -100,7 +113,7 @@ CREATE TABLE Purchases(
 )
 
 CREATE TABLE Roles(
-    Id INT PRIMARY KEY,
+    Id INT PRIMARY KEY Identity(1,1),
     Name VARCHAR(20) NOT NULL,
 )
 
